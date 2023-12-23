@@ -1,4 +1,8 @@
+import 'package:finary_app/constant/routes.dart';
+import 'package:finary_app/onboarding/sign_up_page.dart';
+import 'package:finary_app/template/background.dart';
 import 'package:flutter/material.dart';
+import 'package:finary_app/constant/color_constant.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -10,10 +14,109 @@ class OnboardingPage extends StatefulWidget {
 class _OnboardingPageState extends State<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(children: <Widget>[
-        Image.asset('../../assets/img/note_background.png'),
-      ]),
+    return BackgroundPage(
+      pageBody: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              SizedBox(
+                  width: 156,
+                  height: 404,
+                  child: Image.asset(
+                    'assets/img/note_background.png',
+                    fit: BoxFit.fill,
+                  )),
+              Column(
+                children: <Widget>[
+                  SizedBox(
+                      width: 156,
+                      height: 241,
+                      child: Image.asset(
+                        'assets/img/saving_background.png',
+                        fit: BoxFit.fill,
+                      )),
+                  SizedBox(
+                      width: 156,
+                      height: 177,
+                      child: Image.asset(
+                        'assets/img/calculate_background.png',
+                        fit: BoxFit.fill,
+                      )),
+                ],
+              ),
+            ],
+          ),
+          const Text(
+            "Catat semua pengeluaranmu disini",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Pantau, rencanakan, dan kendalikan uangmu dengan Finary",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontWeight: FontWeight.w100,
+                fontSize: 16,
+                color: TextColor().grey),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          TextButton(
+              style: ButtonStyle(
+                  fixedSize: MaterialStateProperty.resolveWith((states) {
+                    return const Size(328, 44);
+                  }),
+                  backgroundColor: MaterialStateProperty.resolveWith((states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return ButtonPrimaryColor().bgClick;
+                    } else {
+                      return ButtonPrimaryColor().bgDefault;
+                    }
+                  }),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6),
+                  ))),
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, SIGNUP_PAGE);
+              },
+              child: Text(
+                "Daftar",
+                textAlign: TextAlign.center,
+                style: TextStyle(color: TextColor().white),
+              )),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                "Sudah punya akun?",
+                style: TextStyle(
+                    color: TextColor().grey,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14),
+              ),
+              TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, LOGIN_PAGE);
+                  },
+                  child: Text(
+                    "Masuk",
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: ButtonSecondaryColor().textActive,
+                        fontWeight: FontWeight.w500),
+                  ))
+            ],
+          )
+        ],
+      ),
     );
   }
 }

@@ -30,7 +30,7 @@ class TextColorInterface {
 
 class ButtonPrimaryColor {
   Color bgDefault = const Color(0xff605dec);
-  Color bgHover = const Color(0xfff3d3ace);
+  Color bgHover = const Color(0xff3d3ace);
   Color bgFocused = const Color(0xff3d3ace);
   Color bgActive = const Color(0xff3d3ace);
   Color bgClick = const Color(0xff23209f);
@@ -39,18 +39,22 @@ class ButtonPrimaryColor {
   Color strokeFocused = const Color(0xfff845fc);
 
   Color textDisabled = const Color(0xffc5c0db);
-  Color text = const Color(0xfffffffff);
+  Color text = const Color(0xffffffff);
+}
+
+class ButtonSecondaryColor {
+  Color textActive = const Color(0xff605dec);
 }
 
 class FieldsColor {
   Color form = const Color(0xfff9f9fd);
   Color title = const Color(0xff9d99ac);
   Color text = const Color(0xff212121);
-  Color textDisabled =const Color(0xffa5a5a7);
+  Color textDisabled = const Color(0xffa5a5a7);
 
   Color description = const Color(0xffAAAAAA);
 
   Color strokeHover = const Color(0xffe8e6f8);
   Color strokeFocused = const Color(0xff605dec);
- 
+  Color strokeLoading = const Color(0xffe8e6f8);
 }

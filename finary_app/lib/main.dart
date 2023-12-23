@@ -1,4 +1,7 @@
+import 'package:finary_app/constant/routes.dart';
+import 'package:finary_app/onboarding/log_in_page.dart';
 import 'package:finary_app/onboarding/page.dart';
+import 'package:finary_app/onboarding/sign_up_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +17,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Nunito Sans'),
-      home: OnboardingPage(),
+      home: const OnboardingPage(),
+      routes: <String, WidgetBuilder>{
+        SIGNUP_PAGE: (BuildContext context) => const SignUpPage(),
+        LOGIN_PAGE: (BuildContext context) => const LoginPage()
+      },
     );
   }
 }
