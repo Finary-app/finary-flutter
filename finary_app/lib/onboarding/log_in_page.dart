@@ -1,6 +1,8 @@
 import 'package:finary_app/constant/color_constant.dart';
 import 'package:finary_app/template/background.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:finary_app/controller/navigate_controller.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -10,6 +12,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final NavigatePageController _navigate = Get.put(NavigatePageController());
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   late bool _passVisible;
@@ -33,7 +36,8 @@ class _LoginPageState extends State<LoginPage> {
               fontWeight: FontWeight.bold,
               fontSize: 32),
         ),
-        SizedBox(width:328 ,
+        SizedBox(
+          width: 328,
           height: 57,
           child: Text(
             textAlign: TextAlign.center,
@@ -65,8 +69,8 @@ class _LoginPageState extends State<LoginPage> {
                 fillColor: FieldsColor().form,
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(6.0),
-                    borderSide:
-                        BorderSide(color: FieldsColor().strokeLoading))),
+                    borderSide: BorderSide(
+                        color: FieldsColor().strokeLoading, width: 3))),
           ),
         ),
         Text(
@@ -104,6 +108,32 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
         ),
+        TextButton(
+            style: ButtonStyle(
+                fixedSize: MaterialStateProperty.resolveWith((states) {
+                  return const Size(328, 44);
+                }),
+                backgroundColor: MaterialStateProperty.resolveWith((states) {
+                  if (states.contains(MaterialState.pressed)) {
+                    return ButtonPrimaryColor().bgClick;
+                  } else {
+                    return ButtonPrimaryColor().bgDefault;
+                  }
+                }),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(6),
+                ))),
+            onPressed: () {
+              setState(() {
+                _navigate.navigateDashboard(context);
+              });
+            },
+            child: Text(
+              "Masuk",
+              textAlign: TextAlign.center,
+              style: TextStyle(color: TextColor().white),
+            )),
       ],
     ));
   }

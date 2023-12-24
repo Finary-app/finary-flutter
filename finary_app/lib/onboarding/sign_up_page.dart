@@ -1,7 +1,8 @@
-import 'package:finary_app/constant/routes.dart';
+import 'package:finary_app/controller/navigate_controller.dart';
 import 'package:finary_app/template/background.dart';
 import 'package:flutter/material.dart';
 import 'package:finary_app/constant/color_constant.dart';
+import 'package:get/get.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -11,6 +12,8 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final NavigatePageController _navigatePageController =
+      Get.put(NavigatePageController());
   final TextEditingController _namaController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _tglLahirHariController = TextEditingController();
@@ -306,7 +309,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               TextButton(
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, LOGIN_PAGE);
+                    _navigatePageController.navigateLoginPage(context);
                   },
                   child: Text(
                     "Masuk",

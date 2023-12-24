@@ -1,4 +1,5 @@
 import 'package:finary_app/constant/routes.dart';
+import 'package:finary_app/dashboard/page.dart';
 import 'package:finary_app/onboarding/log_in_page.dart';
 import 'package:finary_app/onboarding/page.dart';
 import 'package:finary_app/onboarding/sign_up_page.dart';
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
       home: const OnboardingPage(),
       routes: <String, WidgetBuilder>{
         SIGNUP_PAGE: (BuildContext context) => const SignUpPage(),
-        LOGIN_PAGE: (BuildContext context) => const LoginPage()
+        LOGIN_PAGE: (BuildContext context) => const LoginPage(),
+        DASHBOARD_PAGE: (BuildContext context) => const MainPage()
       },
     );
   }

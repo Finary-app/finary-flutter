@@ -56,5 +56,5 @@ class FieldsColor {
 
   Color strokeHover = const Color(0xffe8e6f8);
   Color strokeFocused = const Color(0xff605dec);
-  Color strokeLoading = const Color(0xffe8e6f8);
+  Color strokeLoading = const Color(0xffe8e6f8); 
 }

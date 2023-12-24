@@ -1,8 +1,8 @@
-import 'package:finary_app/constant/routes.dart';
-import 'package:finary_app/onboarding/sign_up_page.dart';
+import 'package:finary_app/controller/navigate_controller.dart';
 import 'package:finary_app/template/background.dart';
 import 'package:flutter/material.dart';
 import 'package:finary_app/constant/color_constant.dart';
+import 'package:get/get.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -12,6 +12,7 @@ class OnboardingPage extends StatefulWidget {
 }
 
 class _OnboardingPageState extends State<OnboardingPage> {
+  final NavigatePageController navigatePageController = Get.put(NavigatePageController());
   @override
   Widget build(BuildContext context) {
     return BackgroundPage(
@@ -85,7 +86,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     borderRadius: BorderRadius.circular(6),
                   ))),
               onPressed: () {
-                Navigator.pushReplacementNamed(context, SIGNUP_PAGE);
+                navigatePageController.navigateSignUpPage(context);
               },
               child: Text(
                 "Daftar",
@@ -104,7 +105,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               ),
               TextButton(
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, LOGIN_PAGE);
+                   navigatePageController.navigateLoginPage(context);
                   },
                   child: Text(
                     "Masuk",
