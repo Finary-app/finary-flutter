@@ -1,7 +1,7 @@
+import 'package:finary_app/constant/color_constant.dart';
 import 'package:finary_app/controller/navigate_controller.dart';
 import 'package:finary_app/template/background.dart';
 import 'package:flutter/material.dart';
-import 'package:finary_app/constant/color_constant.dart';
 import 'package:get/get.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -75,7 +75,6 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 10),
-            width: 328,
             height: 44,
             child: TextFormField(
               controller: _namaController,
@@ -96,7 +95,6 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 10),
-            width: 328,
             height: 44,
             child: TextFormField(
               controller: _usernameController,
@@ -216,10 +214,9 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 10),
-            width: 328,
             height: 44,
             child: TextFormField(
-              obscureText: _passVisible,
+              obscureText: !_passVisible,
               controller: _passwordController,
               decoration: InputDecoration(
                 fillColor: FieldsColor().form,
@@ -250,10 +247,9 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 10),
-            width: 328,
             height: 44,
             child: TextFormField(
-              obscureText: _passConfirmVisible,
+              obscureText: !_passConfirmVisible,
               controller: _passwordConfirmController,
               decoration: InputDecoration(
                 fillColor: FieldsColor().form,
@@ -275,28 +271,30 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
             ),
           ),
-          TextButton(
-              style: ButtonStyle(
-                  fixedSize: MaterialStateProperty.resolveWith((states) {
-                    return const Size(328, 44);
-                  }),
-                  backgroundColor: MaterialStateProperty.resolveWith((states) {
-                    if (states.contains(MaterialState.pressed)) {
-                      return ButtonPrimaryColor().bgClick;
-                    } else {
-                      return ButtonPrimaryColor().bgDefault;
-                    }
-                  }),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6),
-                  ))),
-              onPressed: () {},
-              child: Text(
-                "Daftar",
-                textAlign: TextAlign.center,
-                style: TextStyle(color: TextColor().white),
-              )),
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: 44,
+            child: TextButton(
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.resolveWith((states) {
+                      if (states.contains(MaterialState.pressed)) {
+                        return ButtonPrimaryColor().bgClick;
+                      } else {
+                        return ButtonPrimaryColor().bgDefault;
+                      }
+                    }),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6),
+                    ))),
+                onPressed: () {},
+                child: Text(
+                  "Daftar",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: TextColor().white),
+                )),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

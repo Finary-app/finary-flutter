@@ -51,6 +51,7 @@ class _MainPageState extends State<MainPage> {
             BottomNavigationBarItem(icon: Icon(Icons.wallet), label: "Saving"),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
           ]),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: currentPageIndex == 0
           ? null
           : _floatingBtnWrapController.getFloatingBtn(currentPageIndex),
