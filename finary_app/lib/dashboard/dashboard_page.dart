@@ -23,6 +23,8 @@ class _DashboardPageState extends State<DashboardPage> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
+            width: MediaQuery.of(context).size.width,
+            height: 240,
             padding: const EdgeInsets.only(top: 30),
             decoration: BoxDecoration(
                 image: const DecorationImage(
@@ -42,8 +44,6 @@ class _DashboardPageState extends State<DashboardPage> {
                 borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(24),
                     bottomRight: Radius.circular(24))),
-            width: 360,
-            height: 240,
             child: Stack(
               children: [
                 SizedBox(
@@ -59,7 +59,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         fit: BoxFit.fill),
                   ),
                   const SizedBox(
-                    width: 5,
+                    width: 10,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -96,7 +96,6 @@ class _DashboardPageState extends State<DashboardPage> {
           )
         ],
       ),
-
     );
   }
 }

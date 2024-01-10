@@ -108,7 +108,7 @@ class _CatatanPageState extends State<CatatanPage> {
             ),
           ),
           Container(
-              width: 365,
+              width: MediaQuery.of(context).size.width,
               padding: const EdgeInsets.fromLTRB(15, 2, 15, 2),
               margin: EdgeInsets.only(bottom: 8),
               color: BackgroundColor().white,
